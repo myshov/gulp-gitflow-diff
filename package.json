@@ -1,6 +1,6 @@
 {
   "name": "gulp-gitflow-diff",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Gulp plugin for fitlering files that differ from some base git branch",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,10 @@
   "author": {
       "name" : "Alexander Myshov",
       "url": "https://github.com/myshov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myshov/gulp-gitflow-diff.git"
   },
   "license": "MIT",
   "dependencies": {
