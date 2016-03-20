@@ -4,11 +4,11 @@ var through = require('through2');
 var execSync = require('child_process').execSync;
 
 function diffBranches(options) {
-	var filesChanged = [];
+    var filesChanged = [];
 
-	if (!options.baseBranch) {
-		throw new gutil.PluginError('gulp-gitflow-diff', 'baseBranch param is required');
-	}
+    if (!options.baseBranch) {
+        throw new gutil.PluginError('gulp-gitflow-diff', 'baseBranch param is required');
+    }
 
     var cmd = 'git diff --name-only ' + options.baseBranch + '..HEAD';
     filesChanged = execSync(cmd, {encoding: 'utf8'});
@@ -16,14 +16,14 @@ function diffBranches(options) {
     // last entry is just empty string
     filesChanged.pop();
 
-	return through.obj(
-		function (file, enc, cb) {
-			if (isFileChanged(file, filesChanged)) {
-				this.push(file);
+    return through.obj(
+        function (file, enc, cb) {
+            if (isFileChanged(file, filesChanged)) {
+                this.push(file);
             }
-			cb();
-		}
-	);
+            cb();
+        }
+    );
 };
 
 function isFileChanged(file, filesChanged) {
