@@ -1,6 +1,6 @@
 {
   "name": "gulp-gitflow-diff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gulp plugin for fitlering files that differ from some base git branch",
   "main": "index.js",
   "scripts": {
