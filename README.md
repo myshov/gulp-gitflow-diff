@@ -13,7 +13,7 @@ $ npm install gulp-gitflow-diff --save-dev
 
 ```js
 var gulp = require('gulp');
-var gulpPrefixer = require('./gulp-prefixer');
+var gulpGitflowDiff = require('gulp-gitflow-diff');
 
 
 gulp.task('default', function () {
