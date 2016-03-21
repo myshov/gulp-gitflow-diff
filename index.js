@@ -10,7 +10,7 @@ function diffBranches(options) {
         throw new gutil.PluginError('gulp-gitflow-diff', 'baseBranch param is required');
     }
 
-    var cmd = 'git diff --name-only ' + options.baseBranch + '..HEAD';
+    var cmd = 'git diff --name-only $(git merge-base ' + options.baseBranch + ' HEAD)..HEAD';
     filesChanged = execSync(cmd, {encoding: 'utf8'});
     filesChanged = filesChanged.split("\n");
     // last entry is just empty string
