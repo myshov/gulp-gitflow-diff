@@ -11,6 +11,8 @@ $ npm install gulp-gitflow-diff --save-dev
 
 # Usage
 
+## Basic example
+
 ```js
 var gulp = require('gulp');
 var gulpGitflowDiff = require('gulp-gitflow-diff');
@@ -20,6 +22,23 @@ gulp.task('default', function () {
     return gulp.src('./src/**/*.js')
         .pipe(gulpGitflowDiff({baseBranch: 'master'}))
         .pipe(gulp.dest('dest'));
+});
+```
+
+## Linting example
+
+```js
+var gulp = require('gulp');
+var eslint = require('gulp-eslint');
+var gulpGitflowDiff = require('gulp-gitflow-diff');
+
+
+gulp.task('lint', function () {
+    return gulp.src('./src/**/*.js')
+        .pipe(gulpGitflowDiff({baseBranch: 'master'}))
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 ```
 
